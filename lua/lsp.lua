@@ -1,0 +1,19 @@
+vim.g.lspToMasonMap = {
+	ast_grep = "ast-grep", -- custom, ast-based linter
+	autotools_ls = "autotools-language-server", -- Makefiles
+	bashls = "bash-language-server", -- used for zsh
+	biome = "biome", -- ts/js/json linter/formatter
+	cssls = "css-lsp",
+	emmet_ls = "emmet-ls", -- css/html completion
+	html = "html-lsp",
+	-- jedi_language_server = "jedi-language-server", -- python (has much better hovers)
+	jsonls = "json-lsp",
+	-- ltex = "ltex-ls", -- languagetool
+	lua_ls = "lua-language-server",
+	marksman = "marksman", -- markdown
+	pyright = "pyright", -- python
+	ruff_lsp = "ruff-lsp", -- python linter
+	taplo = "taplo", -- toml
+	tsserver = "typescript-language-server",
+	yamlls = "yaml-language-server",
+}
