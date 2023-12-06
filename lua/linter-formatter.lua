@@ -133,7 +133,8 @@ return {
     config = function()
       require("conform").setup(formatterConfig)
 
-      vim.api.nvim_create_user_command("ToggleAutoFormat", function(args)
+      vim.api.nvim_create_user_command("ToggleAutoFormat", function()
+        ---@diagnostic disable-next-line: inject-field
         vim.b.disable_autoformat = not vim.b.disable_autoformat
         if vim.b.disable_autoformat then
           print("disable auto format")

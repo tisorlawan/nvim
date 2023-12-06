@@ -67,6 +67,7 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     config = function()
+      ---@diagnostic disable-next-line: missing-fields
       require("nvim-treesitter.configs").setup({
         ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
         auto_install = true,
@@ -145,6 +146,7 @@ require("lazy").setup({
   },
   {
     "echasnovski/mini.nvim",
+    ---@diagnostic disable-next-line: assign-type-mismatch
     version = false,
     config = function()
       require("mini.comment").setup()
@@ -438,6 +440,7 @@ local function close_diagnostics()
         vim.cmd("cclose")
       elseif vim.bo.buftype == "help" then
         vim.cmd("bdelete")
+      ---@diagnostic disable-next-line: param-type-mismatch
       elseif vim.fn.bufname("%") == "Trouble" then
         vim.cmd("bdelete")
       end
