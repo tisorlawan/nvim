@@ -478,10 +478,6 @@ end
 vim.keymap.set("n", "<leader><tab>", "<c-^>", { desc = "alternative buffer" })
 vim.keymap.set("n", "<c-s>", ":w<cr>", { silent = true })
 vim.keymap.set("n", "<leader>w", ":w<cr>", { silent = true, desc = "Write buffer" })
-vim.keymap.set("n", "<c-l>", "<c-w>l")
-vim.keymap.set("n", "<c-h>", "<c-w>h")
-vim.keymap.set("n", "<c-k>", "<c-w>k")
-vim.keymap.set("n", "<c-j>", "<c-w>j")
 
 vim.keymap.set("n", "<m-n>", ":bnext<cr>", { silent = true })
 vim.keymap.set("n", "<m-p>", ":bprev<cr>", { silent = true })
