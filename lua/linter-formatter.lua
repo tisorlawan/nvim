@@ -1,38 +1,9 @@
 require("lsp")
 
-local linters = {
-	lua = {},
-	css = { "stylelint" },
-	sh = { "zsh", "shellcheck" },
-	markdown = { "markdownlint", "vale" },
-	python = {},
-	yaml = {},
-	json = {},
-	javascript = {},
-	typescript = {},
-	toml = {},
-	applescript = {},
-	bib = {},
-}
-
-for _, list in pairs(linters) do
+for _, list in pairs(vim.g.linters) do
 	table.insert(list, "editorconfig-checker")
 	table.insert(list, "typos")
 end
-
-local formatters = {
-	javascript = { "biome" },
-	typescript = { "biome" },
-	json = { "biome" },
-	lua = { "stylua", "ast-grep" },
-	python = { "ruff_format", "isort" },
-	markdown = { "markdown-toc", "markdownlint", "injected" },
-	css = { "stylelint", "prettier" },
-	sh = { "shellcheck", "shfmt" },
-	bib = { "trim_whitespace", "bibtex-tidy" },
-	["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- filetypes w/o formatter
-	["*"] = { "typos" },
-}
 
 local lspFormattingFiletypes = {
 	"toml",
@@ -87,7 +58,7 @@ end
 
 local function linterConfigs()
 	local lint = require("lint")
-	lint.linters_by_ft = linters
+	lint.linters_by_ft = vim.g.linters
 
 	lint.linters.shellcheck.args = { "--shell=bash", "--format=json", "--external-sources", "-" }
 end
@@ -117,7 +88,7 @@ end
 --------------------------------------------------------------------------------
 
 local formatterConfig = {
-	formatters_by_ft = formatters,
+	formatters_by_ft = vim.g.formatters,
 	formatters = {
 		markdownlint = {},
 	},
@@ -206,7 +177,7 @@ return {
 		dependencies = "williamboman/mason.nvim",
 		config = function()
 			local lsps = vim.tbl_values(vim.g.lspToMasonMap)
-			local myTools = toolsToAutoinstall(linters, formatters, lsps, extraInstalls, dontInstall)
+			local myTools = toolsToAutoinstall(vim.g.linters, vim.g.formatters, lsps, extraInstalls, dontInstall)
 
 			require("mason-tool-installer").setup({
 				ensure_installed = myTools,
