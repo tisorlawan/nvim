@@ -242,6 +242,7 @@ require("lazy").setup({
     end,
   },
   { "romainl/vim-cool" },
+  { "nmac427/guess-indent.nvim", opts = {}, event = { "BufReadPre" } },
   {
     "ggandor/leap.nvim",
     keys = {
