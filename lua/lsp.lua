@@ -15,9 +15,7 @@ vim.g.formatters = {
   markdown = { "markdown-toc", "markdownlint", "injected" },
   css = { "stylelint", "prettier" },
   sh = { "shellcheck", "shfmt" },
-  bib = { "trim_whitespace", "bibtex-tidy" },
-  ["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- filetypes w/o formatter
-  ["*"] = { "typos" },
+  bib = { "bibtex-tidy" },
 }
 
 vim.g.lspToMasonMap = {

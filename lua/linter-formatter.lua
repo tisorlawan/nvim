@@ -22,9 +22,6 @@ local extraInstalls = {
 local dontInstall = {
   "stylelint", -- installed externally due to its plugins: https://github.com/williamboman/mason.nvim/issues/695
   "zsh", -- builtin
-  "trim_whitespace", -- not real formatters, but pseudo-formatters from conform.nvim
-  "trim_newlines",
-  "squeeze_blanks",
   "injected",
   "ruff_format",
   "ruff_fix",
