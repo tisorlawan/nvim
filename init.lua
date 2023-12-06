@@ -1,5 +1,38 @@
-require("options")
-require("lsp")
+-- #OPTIONS
+vim.g.mapleader = " "
+
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+vim.opt.cursorline = true
+
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+vim.opt.wrap = false
+
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
+vim.opt.clipboard = "unnamedplus"
+
+vim.opt.scrolloff = 6
+
+vim.opt.virtualedit = "block"
+
+vim.opt.inccommand = "split"
+
+vim.opt.ignorecase = true
+
+vim.opt.termguicolors = true
+
+vim.opt.swapfile = false
+vim.opt.statuscolumn = "%s%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . ' ' : v:lnum) : ''}%="
+vim.opt.signcolumn = "yes"
+
+vim.opt.undodir = vim.fn.expand("$HOME/.undodir")
+vim.opt.undofile = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -14,6 +47,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- #PLUGINS
 require("lazy").setup({
 	{
 		"rebelot/kanagawa.nvim",
@@ -111,13 +145,6 @@ require("lazy").setup({
 				},
 				symbol = "│",
 			})
-
-			-- require("mini.pick").setup()
-			-- vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", { desc = "[F]iles" })
-			-- vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", { desc = "[B]buffers" })
-			-- vim.keymap.set("n", "<leader>fg", "<cmd>Pick grep<cr>", { desc = "[G]rep" })
-			-- vim.keymap.set("n", "<leader>fw", "<cmd>Pick grep_live<cr>", { desc = "[W]ord" })
-			-- vim.keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>", { desc = "[H]elp" })
 		end,
 	},
 	{
@@ -144,8 +171,227 @@ require("lazy").setup({
 		"romainl/vim-cool",
 	},
 
-	require("pickers"),
+	{
+		"ggandor/leap.nvim",
+		keys = {
+			{ "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+			{ "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+			{ "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward till" },
+			{ "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
+			{ "gs", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
+		},
+		opts = {},
+		init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
+			vim.api.nvim_create_autocmd("User", {
+				callback = function()
+					vim.cmd.hi("Cursor", "blend=100")
+					vim.opt.guicursor:append({ "a:Cursor/lCursor" })
+				end,
+				pattern = "LeapEnter",
+			})
+			vim.api.nvim_create_autocmd("User", {
+				callback = function()
+					vim.cmd.hi("Cursor", "blend=0")
+					vim.opt.guicursor:remove({ "a:Cursor/lCursor" })
+				end,
+				pattern = "LeapLeave",
+			})
+		end,
+		dependencies = {
+			"tpope/vim-repeat",
+		},
+	},
+	{
+		"catppuccin/nvim",
+		optional = true,
+		opts = { integrations = { leap = true } },
+	},
+
+	{
+		"Aasim-A/scrollEOF.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("scrollEOF").setup()
+		end,
+	},
+
+	{
+		"nacro90/numb.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("numb").setup({
+				show_numbers = true, -- Enable 'number' for the window while peeking
+				show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+			})
+		end,
+	},
+	{
+		"mbbill/undotree",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			vim.keymap.set("n", "<leader>fu", "<cmd>UndotreeToggle<cr>", { desc = "Undotree toggle" })
+			vim.cmd([[
+        if has("persistent_undo")
+           let target_path = expand('~/.undodir')
+
+           if !isdirectory(target_path)
+               call mkdir(target_path, "p", 0700)
+           endif
+
+           let &undodir=target_path
+           set undofile
+        endif
+    ]])
+		end,
+	},
+	{
+		"wintermute-cell/gitignore.nvim",
+		cmd = "Gitignore",
+	},
+	{
+		"lambdalisue/suda.vim",
+		keys = {
+			{
+				"<leader>W",
+				":SudaWrite<CR>",
+				desc = "Suda Write",
+			},
+		},
+		cmd = {
+			"SudaRead",
+			"SudaWrite",
+		},
+	},
+	{ "folke/todo-comments.nvim", opts = {}, event = { "BufReadPre", "BufNewFile" } },
+
+	{
+		"kevinhwang91/nvim-bqf",
+		ft = "qf",
+		opts = {},
+	},
+	{
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		-- dependencies = { "nvim-tree/nvim-web-devicons" },
+		keys = {
+			{ "<leader>ff", "<cmd>lua require('fzf-lua').files()<CR>", silent = true, desc = "[F]iles" },
+			{ "<leader>fh", "<cmd>lua require('fzf-lua').help_tags()<CR>", silent = true, desc = "[H]elp" },
+			{ "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", silent = true, desc = "[B]buffers" },
+			{ "<leader>fn", "<cmd>lua require('fzf-lua').builtin()<CR>", silent = true, desc = "Built-i[N]" },
+			{
+				"<leader>fw",
+				"<cmd>lua require('fzf-lua').live_grep_native()<CR>",
+				silent = true,
+				desc = "Live Grep [Word]",
+			},
+			{ "<leader>*", "<cmd>lua require('fzf-lua').grep_cword()<CR>", silent = true, desc = "Grep cword" },
+			{
+				mode = "x",
+				"<leader>q",
+				"<cmd>lua require('fzf-lua').grep_visual()<CR>",
+				silent = true,
+				desc = "Grep visual",
+			},
+		},
+		config = function()
+			-- fix: small delay on closing the window
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "fzf" },
+				callback = function(event)
+					vim.bo[event.buf].buflisted = false
+					vim.keymap.set("t", "<C-c>", "<C-c>", { buffer = event.buf, silent = true })
+					vim.keymap.set("t", "<Esc>", "<C-c>", { buffer = event.buf, silent = true })
+				end,
+			})
+
+			require("fzf-lua").setup({
+				winopts = {
+					preview = { default = "bat_native" },
+				},
+				files = {
+					git_icons = false,
+					file_icons = false,
+				},
+				keymap = {
+					fzf = {
+						["ctrl-q"] = "select-all+accept",
+					},
+				},
+			})
+		end,
+	},
 	require("linter-formatter"),
 })
 
-require("mappings")
+function close_diagnostics()
+	local windows = vim.api.nvim_list_wins()
+	for _, win in ipairs(windows) do
+		vim.api.nvim_win_call(win, function()
+			if vim.bo.buftype == "quickfix" then
+				vim.cmd("lclose")
+			elseif vim.bo.buftype == "locationlist" then
+				vim.cmd("cclose")
+			elseif vim.fn.bufname("%") == "Trouble" then
+				vim.cmd("bdelete")
+			end
+		end)
+	end
+
+	vim.cmd("cclose")
+end
+function jumps_to_qf()
+	local jumplist, _ = unpack(vim.fn.getjumplist())
+	local qf_list = {}
+	for _, v in pairs(jumplist) do
+		if vim.fn.bufloaded(v.bufnr) == 1 then
+			table.insert(qf_list, {
+				bufnr = v.bufnr,
+				lnum = v.lnum,
+				col = v.col,
+				text = vim.api.nvim_buf_get_lines(v.bufnr, v.lnum - 1, v.lnum, false)[1],
+			})
+		end
+	end
+	vim.fn.setqflist(qf_list, " ")
+	vim.cmd("copen")
+end
+
+-- #KEYMAP
+vim.keymap.set("n", "<leader><tab>", "<c-^>", { desc = "alternative buffer" })
+vim.keymap.set("n", "<c-s>", ":w<cr>", { silent = true })
+vim.keymap.set("n", "<leader>w", ":w<cr>", { silent = true, desc = "Write buffer" })
+vim.keymap.set("n", "<c-l>", "<c-w>l")
+vim.keymap.set("n", "<c-h>", "<c-w>h")
+vim.keymap.set("n", "<c-k>", "<c-w>k")
+vim.keymap.set("n", "<c-j>", "<c-w>j")
+
+vim.keymap.set("n", "<m-n>", ":bnext<cr>", { silent = true })
+vim.keymap.set("n", "<m-p>", ":bprev<cr>", { silent = true })
+
+vim.keymap.set("n", "H", "^")
+vim.keymap.set("n", "L", "$")
+
+vim.keymap.set("n", "'", "`")
+vim.keymap.set("n", "`", "'")
+
+vim.keymap.set("i", "<c-l>", "<right>")
+vim.keymap.set("i", "<c-h>", "<left>")
+vim.keymap.set("i", "<c-s>", "<esc>:w<cr>")
+vim.keymap.set("i", "<m-h>", "<esc>I")
+vim.keymap.set("i", "<m-l>", "<end>")
+
+vim.keymap.set({ "n", "v" }, "c", '"_c')
+vim.keymap.set({ "n", "v" }, "C", '"_C')
+
+vim.keymap.set("v", "x", '"_dP')
+
+vim.keymap.set("n", "cn", ":cnext<CR>", { silent = true })
+vim.keymap.set("n", "cp", ":cprev<CR>", { silent = true })
+vim.keymap.set("n", "co", ":copen<CR>", { silent = true })
+vim.keymap.set("n", "cq", close_diagnostics, { desc = "Close Diagnostics", silent = true })
+vim.keymap.set("n", "cu", jumps_to_qf, { desc = "Jumps to Qf", silent = true })
+
+vim.cmd([[
+  xnoremap <expr> p 'pgv"'.v:register.'y`>'
+  xnoremap <expr> P 'Pgv"'.v:register.'y`>'
+]])

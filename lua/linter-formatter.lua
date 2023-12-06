@@ -1,3 +1,5 @@
+require("lsp")
+
 local linters = {
 	lua = {},
 	css = { "stylelint" },
