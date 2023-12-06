@@ -112,12 +112,12 @@ require("lazy").setup({
 				symbol = "│",
 			})
 
-			require("mini.pick").setup()
-			vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", { desc = "[F]iles" })
-			vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", { desc = "[B]buffers" })
-			vim.keymap.set("n", "<leader>fg", "<cmd>Pick grep<cr>", { desc = "[G]rep" })
-			vim.keymap.set("n", "<leader>fw", "<cmd>Pick grep_live<cr>", { desc = "[W]ord" })
-			vim.keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>", { desc = "[H]elp" })
+			-- require("mini.pick").setup()
+			-- vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", { desc = "[F]iles" })
+			-- vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", { desc = "[B]buffers" })
+			-- vim.keymap.set("n", "<leader>fg", "<cmd>Pick grep<cr>", { desc = "[G]rep" })
+			-- vim.keymap.set("n", "<leader>fw", "<cmd>Pick grep_live<cr>", { desc = "[W]ord" })
+			-- vim.keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>", { desc = "[H]elp" })
 		end,
 	},
 	{
@@ -143,6 +143,8 @@ require("lazy").setup({
 	{
 		"romainl/vim-cool",
 	},
+
+	require("pickers"),
 	require("linter-formatter"),
 })
 
