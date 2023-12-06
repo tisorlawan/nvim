@@ -110,7 +110,12 @@ require("lazy").setup({
 					{
 						"diagnostics",
 						sources = { "nvim_diagnostic" },
-						symbols = require("icons").diagnostic,
+						symbols = {
+							error = "󰅚 ",
+							warn = "󰀪 ",
+							hint = "󰌶 ",
+							info = " ",
+						},
 						colored = true,
 					},
 				},
@@ -387,6 +392,12 @@ require("lazy").setup({
 			})
 		end,
 	},
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^3",
+		ft = { "rust" },
+	},
+
 	require("lsp"),
 	require("linter-formatter"),
 })
@@ -430,8 +441,10 @@ end
 local function toggle_diagnostics()
 	if vim.diagnostic.is_disabled() then
 		vim.diagnostic.enable()
+		print("enabled diagnostic")
 	else
 		vim.diagnostic.disable()
+		print("disable diagnostic")
 	end
 end
 
@@ -479,3 +492,22 @@ vim.cmd([[
   xnoremap <expr> p 'pgv"'.v:register.'y`>'
   xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 ]])
+
+-- #AUTOCMDS
+vim.api.nvim_create_autocmd("FileType", {
+	desc = "Rust file autocmds",
+	pattern = "rust",
+	group = vim.api.nvim_create_augroup("rust_ft", { clear = true }),
+	callback = function(opts)
+		vim.keymap.set("i", "<C-d>", "<End>;", { silent = true, buffer = opts.buf })
+	end,
+})
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight yanked text",
+	pattern = "*",
+	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+	end,
+})

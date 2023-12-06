@@ -1,5 +1,3 @@
-local diagnostic_icons = require("icons").diagnostic
-
 vim.g.lspToMasonMap = {
 	-- ast_grep = "ast-grep", -- custom, ast-based linter
 	autotools_ls = "autotools-language-server", -- Makefiles
@@ -89,12 +87,7 @@ return {
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 
 			-- Diagnostics
-			local signs = {
-				Error = diagnostic_icons.error,
-				Warn = diagnostic_icons.warn,
-				Hint = diagnostic_icons.hint,
-				Info = diagnostic_icons.info,
-			}
+			local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
