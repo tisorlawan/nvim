@@ -12,10 +12,11 @@ local lspFormattingFiletypes = {
 }
 
 --------------------------------------------------------------------------------
-
+-- if not using real names
 local extraInstalls = {
-	"debugpy", -- debugger
-	"ruff", -- since ruff_format and ruff_fix aren't the real names
+	"debugpy",
+	"ruff",
+	"clang-format",
 }
 
 local dontInstall = {
@@ -27,6 +28,7 @@ local dontInstall = {
 	"injected",
 	"ruff_format",
 	"ruff_fix",
+	"clang_format",
 }
 
 ---given the linter- and formatter-list of nvim-lint and conform.nvim, extract a

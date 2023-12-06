@@ -520,9 +520,9 @@ vim.cmd([[
 
 -- #AUTOCMDS
 vim.api.nvim_create_autocmd("FileType", {
-	desc = "Rust file autocmds",
-	pattern = "rust",
-	group = vim.api.nvim_create_augroup("rust_ft", { clear = true }),
+	desc = "Add semicolon",
+	pattern = "rust,c",
+	group = vim.api.nvim_create_augroup("add_semicolon", { clear = true }),
 	callback = function(opts)
 		vim.keymap.set("i", "<C-d>", "<End>;", { silent = true, buffer = opts.buf })
 	end,

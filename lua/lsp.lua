@@ -7,6 +7,7 @@ vim.g.linters = {
 vim.g.formatters = {
 	javascript = { "biome" },
 	typescript = { "biome" },
+	c = { "clang_format" },
 	json = { "biome" },
 	lua = { "stylua", "ast-grep" },
 	python = { "ruff_format", "isort" },
@@ -20,6 +21,7 @@ vim.g.formatters = {
 
 vim.g.lspToMasonMap = {
 	-- ast_grep = "ast-grep", -- custom, ast-based linter
+	clangd = "clangd",
 	autotools_ls = "autotools-language-server", -- Makefiles
 	bashls = "bash-language-server", -- used for zsh
 	biome = "biome", -- ts/js/json linter/formatter
@@ -96,7 +98,7 @@ return {
 						vim.print(server_cfg)
 					end
 
-					lspconfig.pyright.setup(server_cfg)
+					lspconfig[server_name].setup(server_cfg)
 				end
 			end
 
