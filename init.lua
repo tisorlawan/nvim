@@ -34,6 +34,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.undodir = vim.fn.expand("$HOME/.undodir")
 vim.opt.undofile = true
 
+-- #PLUGINS
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -47,7 +48,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- #PLUGINS
 require("lazy").setup({
 	{
 		"rebelot/kanagawa.nvim",
@@ -331,6 +331,8 @@ function close_diagnostics()
 				vim.cmd("lclose")
 			elseif vim.bo.buftype == "locationlist" then
 				vim.cmd("cclose")
+			elseif vim.bo.buftype == "help" then
+				vim.cmd("bdelete")
 			elseif vim.fn.bufname("%") == "Trouble" then
 				vim.cmd("bdelete")
 			end
