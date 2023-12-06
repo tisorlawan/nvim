@@ -96,14 +96,21 @@ require("lazy").setup({
 				component_separators = { left = "", right = "" },
 			},
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = {
+					{
+						"mode",
+						fmt = function(str)
+							return str:sub(1, 1)
+						end,
+					},
+				},
 				lualine_b = {
 					"branch",
 					"diff",
 					{
 						"diagnostics",
 						sources = { "nvim_diagnostic" },
-						symbols = { error = " ", warn = " ", info = " ", hint = "󰌵" },
+						symbols = require("icons").diagnostic,
 						colored = true,
 					},
 				},
@@ -112,7 +119,6 @@ require("lazy").setup({
 						"filename",
 						path = 1,
 					},
-					{ separator },
 				},
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress" },
@@ -381,10 +387,11 @@ require("lazy").setup({
 			})
 		end,
 	},
+	require("lsp"),
 	require("linter-formatter"),
 })
 
-function close_diagnostics()
+local function close_diagnostics()
 	local windows = vim.api.nvim_list_wins()
 	for _, win in ipairs(windows) do
 		vim.api.nvim_win_call(win, function()
@@ -402,7 +409,8 @@ function close_diagnostics()
 
 	vim.cmd("cclose")
 end
-function jumps_to_qf()
+
+local function jumps_to_qf()
 	local jumplist, _ = unpack(vim.fn.getjumplist())
 	local qf_list = {}
 	for _, v in pairs(jumplist) do
@@ -417,6 +425,14 @@ function jumps_to_qf()
 	end
 	vim.fn.setqflist(qf_list, " ")
 	vim.cmd("copen")
+end
+
+local function toggle_diagnostics()
+	if vim.diagnostic.is_disabled() then
+		vim.diagnostic.enable()
+	else
+		vim.diagnostic.disable()
+	end
 end
 
 -- #KEYMAP
@@ -453,6 +469,11 @@ vim.keymap.set("n", "cp", ":cprev<CR>", { silent = true })
 vim.keymap.set("n", "co", ":copen<CR>", { silent = true })
 vim.keymap.set("n", "cq", close_diagnostics, { desc = "Close Diagnostics", silent = true })
 vim.keymap.set("n", "cu", jumps_to_qf, { desc = "Jumps to Qf", silent = true })
+
+vim.keymap.set("n", "<leader>ll", ":Lazy<cr>", { desc = "Lazy", silent = true })
+vim.keymap.set("n", "<leader>lp", ":Lazy profile<cr>", { desc = "Lazy Profile", silent = true })
+
+vim.keymap.set("n", "<leader>ud", toggle_diagnostics, { desc = "Toggle Diagnostics" })
 
 vim.cmd([[
   xnoremap <expr> p 'pgv"'.v:register.'y`>'
