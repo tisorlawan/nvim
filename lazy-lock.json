@@ -7,9 +7,10 @@
   "mason.nvim": { "branch": "main", "commit": "41e75af1f578e55ba050c863587cffde3556ffa6" },
   "mini.nvim": { "branch": "main", "commit": "6d1cbcaec421b3768088b4047e78ce22e5503b99" },
   "nvim-lint": { "branch": "master", "commit": "f20f35756e74b91c0b4340d01fee22422bdffefa" },
-  "nvim-tree.lua": { "branch": "master", "commit": "7d1760f892951dd6a118dae1d7a1d8df5f029edf" },
-  "nvim-treesitter": { "branch": "master", "commit": "3065a928fc134167f439230b01216e45198be715" },
+  "nvim-tree.lua": { "branch": "master", "commit": "05f55c1fd6470b31627655c528245794e3cd4b2c" },
+  "nvim-treesitter": { "branch": "master", "commit": "8f16c39f5b439bd9540336c4d5da705d180e34b9" },
   "vim-cool": { "branch": "master", "commit": "662e7b11064cbeedad17c45d2fe926e78d3cd0b6" },
   "vim-dirvish": { "branch": "master", "commit": "babbf69f7bb5274f0461e04a59d3e059bee27314" },
-  "vim-dirvish-dovish": { "branch": "main", "commit": "04c77b6010f7e45e72b4d3c399c120d42f7c5d47" }
+  "vim-dirvish-dovish": { "branch": "main", "commit": "04c77b6010f7e45e72b4d3c399c120d42f7c5d47" },
+  "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }

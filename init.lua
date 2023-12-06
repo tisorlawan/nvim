@@ -22,10 +22,19 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 420
+		end,
+		opts = {},
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust" },
+				ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
 				auto_install = true,
 				highlight = {
 					enable = true,
@@ -95,13 +104,20 @@ require("lazy").setup({
 		config = function()
 			require("mini.comment").setup()
 			require("mini.pairs").setup()
+			require("mini.indentscope").setup({
+				draw = {
+					delay = 0,
+					animation = require("mini.indentscope").gen_animation.none(),
+				},
+				symbol = "│",
+			})
 
 			require("mini.pick").setup()
-
 			vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", { desc = "[F]iles" })
 			vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", { desc = "[B]buffers" })
 			vim.keymap.set("n", "<leader>fg", "<cmd>Pick grep<cr>", { desc = "[G]rep" })
 			vim.keymap.set("n", "<leader>fw", "<cmd>Pick grep_live<cr>", { desc = "[W]ord" })
+			vim.keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>", { desc = "[H]elp" })
 		end,
 	},
 	{

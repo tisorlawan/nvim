@@ -3,6 +3,8 @@ vim.g.mapleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.cursorline = true
+
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
@@ -27,3 +29,6 @@ vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.statuscolumn = "%s%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . ' ' : v:lnum) : ''}%="
 vim.opt.signcolumn = "yes"
+
+vim.opt.undodir = vim.fn.expand("$HOME/.undodir")
+vim.opt.undofile = true
