@@ -2,7 +2,7 @@
 vim.g.linters = {
   css = { "stylelint" },
   sh = { "zsh", "shellcheck" },
-  markdown = { "markdownlint", "vale" },
+  markdown = { "markdownlint" },
 }
 
 vim.g.formatters = {
@@ -19,13 +19,16 @@ vim.g.formatters = {
 }
 
 vim.g.lspToMasonMap = {
+  -- use plugin pmizio/typescript-tools.nvim
+  -- tsserver = "typescript-language-server",
+
   -- ast_grep = "ast-grep", -- custom, ast-based linter
   clangd = "clangd",
   autotools_ls = "autotools-language-server", -- Makefiles
   bashls = "bash-language-server", -- used for zsh
   biome = "biome", -- ts/js/json linter/formatter
   cssls = "css-lsp",
-  emmet_ls = "emmet-ls", -- css/html completion
+  -- emmet_ls = "emmet-ls", -- css/html completion
   html = "html-lsp",
   -- jedi_language_server = "jedi-language-server", -- python (has much better hovers)
   jsonls = "json-lsp",
@@ -35,7 +38,6 @@ vim.g.lspToMasonMap = {
   pyright = "pyright", -- python
   ruff_lsp = "ruff-lsp", -- python linter
   taplo = "taplo", -- toml
-  tsserver = "typescript-language-server",
   yamlls = "yaml-language-server",
 }
 

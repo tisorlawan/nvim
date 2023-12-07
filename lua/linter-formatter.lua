@@ -17,6 +17,7 @@ local extraInstalls = {
   "debugpy",
   "ruff",
   "clang-format",
+  "typescript-language-server",
 }
 
 local dontInstall = {
