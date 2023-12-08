@@ -6,5 +6,5 @@ return {
       tailwind = true,
     },
   },
-  event = { "BufReadPre", "BufNewFile" },
+  ft = { "typescriptreact", "css" },
 }

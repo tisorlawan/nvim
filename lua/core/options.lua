@@ -1,3 +1,5 @@
+vim.g.transparent = true
+
 vim.g.mapleader = " "
 
 vim.opt.number = true
