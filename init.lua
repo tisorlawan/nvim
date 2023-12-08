@@ -17,11 +17,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   require("plugins.colorscheme"),
   require("plugins.treesitter"),
-  require("plugins.which-key"),
+  require("plugins.git"),
   require("plugins.status"),
+  require("plugins.which-key"),
   require("plugins.mini"),
   require("plugins.filetree"),
-  require("plugins.git"),
   require("plugins.leap"),
   require("plugins.undo"),
   require("plugins.picker"),
@@ -33,6 +33,7 @@ require("lazy").setup({
   require("plugins.colorizer"),
   require("plugins.harpoon"),
   require("plugins.surround"),
+
   require("lsp"),
   require("linter-formatter"),
 })

@@ -2,6 +2,7 @@ local prefix = "gz"
 local maps = { n = {} }
 local icon = vim.g.icons_enabled and "󰑤 " or ""
 maps.n[prefix] = { desc = icon .. "Surround" }
+
 return {
   { "machakann/vim-sandwich", enabled = false },
   {
@@ -33,10 +34,5 @@ return {
         update_n_lines = prefix .. "n", -- Update `n_lines`
       },
     },
-  },
-  {
-    "catppuccin/nvim",
-    optional = true,
-    opts = { integrations = { mini = true } },
   },
 }

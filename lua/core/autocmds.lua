@@ -15,3 +15,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "2 spaces",
+  pattern = "lua",
+  group = vim.api.nvim_create_augroup("two_spaces", { clear = true }),
+  callback = function()
+    vim.opt.expandtab = true
+    vim.opt.tabstop = 2
+    vim.opt.shiftwidth = 2
+  end,
+})
