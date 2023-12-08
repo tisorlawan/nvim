@@ -6,8 +6,9 @@ vim.g.linters = {
 }
 
 vim.g.formatters = {
-  javascript = { "biome" },
-  typescript = { "biome" },
+  javascript = { "prettierd" },
+  typescript = { "prettierd" },
+  typescriptreact = { "prettierd" },
   c = { "clang_format" },
   json = { "biome" },
   lua = { "stylua", "ast-grep" },
@@ -26,7 +27,7 @@ vim.g.lspToMasonMap = {
   clangd = "clangd",
   autotools_ls = "autotools-language-server", -- Makefiles
   bashls = "bash-language-server", -- used for zsh
-  biome = "biome", -- ts/js/json linter/formatter
+  -- biome = "biome", -- ts/js/json linter/formatter
   cssls = "css-lsp",
   tailwindcss = "tailwindcss-language-server",
   -- emmet_ls = "emmet-ls", -- css/html completion
@@ -162,6 +163,7 @@ return {
       "hrsh7th/cmp-path",
 
       "onsails/lspkind.nvim",
+      { "js-everts/cmp-tailwind-colors", opts = {} },
     },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
@@ -228,17 +230,27 @@ return {
           { name = "path", priority = 250 },
         }),
         formatting = {
-          format = lspkind.cmp_format({
-            mode = "symbol", -- show only symbol annotations
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-            ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+          format = function(entry, item)
+            local fmt = lspkind.cmp_format({
+              mode = "symbol", -- show only symbol annotations
+              maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+              ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 
-            -- The function below will be called before any actual modifications from lspkind
-            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-            before = function(_, vim_item)
+              -- The function below will be called before any actual modifications from lspkind
+              -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+              before = function(_, vim_item)
+                return vim_item
+              end,
+            })
+            if item.kind == "Color" then
+              local vim_item = require("cmp-tailwind-colors").format(entry, item)
+              if item.kind == "Color" then
+                return fmt(entry, vim_item)
+              end
               return vim_item
-            end,
-          }),
+            end
+            return fmt(entry, item)
+          end,
         },
       })
 
