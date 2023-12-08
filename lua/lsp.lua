@@ -82,7 +82,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "folke/neodev.nvim", opts = {} },
+      { "folke/neodev.nvim", opts = {}, ft = { "lua" } },
     },
     config = function()
       require("neodev").setup({})

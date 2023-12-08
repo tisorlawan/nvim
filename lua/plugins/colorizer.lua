@@ -6,4 +6,5 @@ return {
       tailwind = true,
     },
   },
+  event = { "BufReadPre", "BufNewFile" },
 }

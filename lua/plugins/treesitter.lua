@@ -3,6 +3,7 @@ return {
   dependencies = {
     "windwp/nvim-ts-autotag",
   },
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require("nvim-treesitter.configs").setup({
