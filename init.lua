@@ -32,6 +32,7 @@ require("lazy").setup({
   require("plugins.misc"),
   require("plugins.colorizer"),
   require("plugins.harpoon"),
+  require("plugins.surround"),
   require("lsp"),
   require("linter-formatter"),
 })
