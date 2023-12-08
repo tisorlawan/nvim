@@ -1,5 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    "windwp/nvim-ts-autotag",
+  },
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require("nvim-treesitter.configs").setup({
@@ -9,6 +12,9 @@ return {
         enable = true,
       },
       indent = {
+        enable = true,
+      },
+      autotag = {
         enable = true,
       },
     })

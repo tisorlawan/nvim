@@ -28,6 +28,7 @@ require("lazy").setup({
   require("plugins.rust"),
   require("plugins.typescript"),
   require("plugins.split"),
+  require("plugins.pairs"),
   require("plugins.misc"),
   require("lsp"),
   require("linter-formatter"),

@@ -4,7 +4,6 @@ return {
   version = false,
   config = function()
     require("mini.comment").setup()
-    require("mini.pairs").setup()
     require("mini.indentscope").setup({
       draw = {
         delay = 0,
