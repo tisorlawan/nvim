@@ -28,6 +28,7 @@ vim.g.lspToMasonMap = {
   bashls = "bash-language-server", -- used for zsh
   biome = "biome", -- ts/js/json linter/formatter
   cssls = "css-lsp",
+  tailwindcss = "tailwindcss-language-server",
   -- emmet_ls = "emmet-ls", -- css/html completion
   html = "html-lsp",
   -- jedi_language_server = "jedi-language-server", -- python (has much better hovers)
