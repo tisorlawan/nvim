@@ -32,6 +32,7 @@ vim.keymap.set("n", "cu", utils.jumps_to_qf, { desc = "Jumps to Qf", silent = tr
 
 vim.keymap.set("n", "<leader>ll", ":Lazy<cr>", { desc = "Lazy", silent = true })
 vim.keymap.set("n", "<leader>lp", ":Lazy profile<cr>", { desc = "Lazy Profile", silent = true })
+vim.keymap.set("n", "<leader>li", ":LspInfo<cr>", { desc = "LspInfo", silent = true })
 
 vim.keymap.set("n", "<leader>ud", utils.toggle_diagnostics, { desc = "Toggle Diagnostics" })
 
