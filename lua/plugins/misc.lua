@@ -1,6 +1,14 @@
 return {
   { "romainl/vim-cool" },
   {
+    "famiu/bufdelete.nvim",
+    config = function()
+      vim.keymap.set("n", "<leader>c", function()
+        require("bufdelete").bufdelete(0, true)
+      end, { desc = "Close buffer" })
+    end,
+  },
+  {
     "Aasim-A/scrollEOF.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
