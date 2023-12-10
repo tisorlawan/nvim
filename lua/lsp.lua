@@ -6,6 +6,7 @@ vim.g.linters = {
 }
 
 vim.g.formatters = {
+  go = { "gofumpt", "goimports", "golines" },
   javascript = { "prettierd" },
   typescript = { "prettierd" },
   typescriptreact = { "prettierd" },
@@ -20,10 +21,8 @@ vim.g.formatters = {
 }
 
 vim.g.lspToMasonMap = {
-  -- use plugin pmizio/typescript-tools.nvim
-  -- tsserver = "typescript-language-server",
-
-  -- ast_grep = "ast-grep", -- custom, ast-based linter
+  docker_compose_language_service = "docker-compose-language-service",
+  dockerls = "dockerfile-language-server",
   clangd = "clangd",
   autotools_ls = "autotools-language-server", -- Makefiles
   bashls = "bash-language-server", -- used for zsh
@@ -41,6 +40,7 @@ vim.g.lspToMasonMap = {
   ruff_lsp = "ruff-lsp", -- python linter
   taplo = "taplo", -- toml
   yamlls = "yaml-language-server",
+  gopls = "gopls",
 }
 
 vim.g.lspConfig = {
@@ -120,7 +120,7 @@ return {
       vim.diagnostic.config({
         virtual_text = false,
         signs = true,
-        underline = false,
+        underline = true,
         update_in_insert = false,
         severity_sort = true,
       })
@@ -141,11 +141,11 @@ return {
           vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
           vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
           vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, opts)
-          vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-          vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-          vim.keymap.set("n", "<leader>wl", function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-          end, opts)
+          -- vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
+          -- vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+          -- vim.keymap.set("n", "<leader>wl", function()
+          --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+          -- end, opts)
           vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
           vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
           vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -189,13 +189,14 @@ return {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
         },
+        -- completion = {
+        --   autocomplete = false,
+        -- },
         mapping = {
           ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
           ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
           ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
           ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
           ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),

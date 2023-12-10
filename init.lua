@@ -26,6 +26,7 @@ require("lazy").setup({
   require("plugins.undo"),
   require("plugins.picker"),
   require("plugins.rust"),
+  require("plugins.go"),
   require("plugins.typescript"),
   require("plugins.split"),
   require("plugins.pairs"),

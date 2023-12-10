@@ -40,3 +40,5 @@ vim.cmd([[
   xnoremap <expr> p 'pgv"'.v:register.'y`>'
   xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 ]])
+
+vim.keymap.set("v", ":s", ":s/\\%V")
