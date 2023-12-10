@@ -31,6 +31,6 @@ return {
     vim.keymap.set("n", "<leader>ut", function()
       vim.g.transparent = not vim.g.transparent
       load()
-    end, { silent = true, desc = "Toggle transparent" })
+    end, { silent = true, desc = "toggle transparent" })
   end,
 }

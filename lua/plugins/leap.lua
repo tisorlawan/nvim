@@ -1,11 +1,11 @@
 return {
   "ggandor/leap.nvim",
   keys = {
-    { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-    { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-    { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward till" },
-    { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
-    { "gs", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
+    { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "leap forward to" },
+    { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "leap backward to" },
+    { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "leap forward till" },
+    { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "leap backward till" },
+    { "gs", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "leap from window" },
   },
   opts = {},
   init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534

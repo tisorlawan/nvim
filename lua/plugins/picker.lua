@@ -3,25 +3,25 @@ return {
   -- optional for icon support
   -- dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
-    { "<leader>ff", "<cmd>lua require('fzf-lua').files()<CR>", silent = true, desc = "Files" },
-    { "<leader>fh", "<cmd>lua require('fzf-lua').help_tags()<CR>", silent = true, desc = "Help" },
-    { "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", silent = true, desc = "Bbuffers" },
-    { "<leader>fn", "<cmd>lua require('fzf-lua').builtin()<CR>", silent = true, desc = "Builtin" },
+    { "<leader>ff", "<cmd>lua require('fzf-lua').files()<cr>", silent = true, desc = "files" },
+    { "<leader>fh", "<cmd>lua require('fzf-lua').help_tags()<cr>", silent = true, desc = "help" },
+    { "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<cr>", silent = true, desc = "bbuffers" },
+    { "<leader>fn", "<cmd>lua require('fzf-lua').builtin()<cr>", silent = true, desc = "builtin" },
     {
       "<leader>fw",
       "<cmd>lua require('fzf-lua').live_grep_native()<CR>",
       silent = true,
-      desc = "Live Grep [Word]",
+      desc = "live grep [word]",
     },
-    { "<leader>*", "<cmd>lua require('fzf-lua').grep_cword()<CR>", silent = true, desc = "Grep cword" },
+    { "<leader>*", "<cmd>lua require('fzf-lua').grep_cword()<CR>", silent = true, desc = "grep cword" },
     {
       mode = "x",
       "<leader>q",
       "<cmd>lua require('fzf-lua').grep_visual()<CR>",
       silent = true,
-      desc = "Grep visual",
+      desc = "grep visual",
     },
-    { "<leader>fs", "<cmd>lua require('fzf-lua').git_status()<CR>", silent = true, desc = "Git status" },
+    { "<leader>fs", "<cmd>lua require('fzf-lua').git_status()<CR>", silent = true, desc = "git status" },
   },
   config = function()
     -- fix: small delay on closing the window

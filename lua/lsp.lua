@@ -107,9 +107,9 @@ return {
 
       -- Global mappings.
       -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-      vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Diagnostic line" })
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+      vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "diagnostic line" })
+      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "prev diagnostic" })
+      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "next diagnostic" })
 
       -- Diagnostics
       local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
@@ -150,7 +150,7 @@ return {
           map("gi", vim.lsp.buf.implementation, "Goto Implementation")
           map("<leader>k", vim.lsp.buf.signature_help, "Signature Help")
           map("gy", vim.lsp.buf.type_definition, "Goto Type Definition")
-          map("rn", vim.lsp.buf.rename, "Rename")
+          map("<leader>rn", vim.lsp.buf.rename, "Rename")
           map("gr", vim.lsp.buf.references, "Goto References")
           vnmap("<leader>la", vim.lsp.buf.code_action, "Code action")
         end,
@@ -285,13 +285,13 @@ return {
       require("trouble").setup(opts)
       vim.keymap.set("n", "<leader>X", function()
         require("trouble").toggle("workspace_diagnostics")
-      end, { desc = "Workspace diagnostics" })
+      end, { desc = "workspace diagnostics" })
       vim.keymap.set("n", "<leader>x", function()
         require("trouble").toggle("document_diagnostics")
-      end, { desc = "Document diagnostics" })
+      end, { desc = "document diagnostics" })
       vim.keymap.set("n", "gR", function()
         require("trouble").toggle("lsp_references")
-      end, { desc = "References" })
+      end, { desc = "references" })
     end,
   },
   {

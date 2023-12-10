@@ -10,13 +10,13 @@ return {
     keys = function(plugin, keys)
       -- Populate the keys based on the user's options
       local mappings = {
-        { plugin.opts.mappings.add, desc = "Add surrounding", mode = { "n", "v" } },
-        { plugin.opts.mappings.delete, desc = "Delete surrounding" },
-        { plugin.opts.mappings.find, desc = "Find right surrounding" },
-        { plugin.opts.mappings.find_left, desc = "Find left surrounding" },
-        { plugin.opts.mappings.highlight, desc = "Highlight surrounding" },
-        { plugin.opts.mappings.replace, desc = "Replace surrounding" },
-        { plugin.opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
+        { plugin.opts.mappings.add, desc = "add surrounding", mode = { "n", "v" } },
+        { plugin.opts.mappings.delete, desc = "delete surrounding" },
+        { plugin.opts.mappings.find, desc = "find right surrounding" },
+        { plugin.opts.mappings.find_left, desc = "find left surrounding" },
+        { plugin.opts.mappings.highlight, desc = "highlight surrounding" },
+        { plugin.opts.mappings.replace, desc = "replace surrounding" },
+        { plugin.opts.mappings.update_n_lines, desc = "update `MiniSurround.config.n_lines`" },
       }
       mappings = vim.tbl_filter(function(m)
         return m[1] and #m[1] > 0

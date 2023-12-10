@@ -16,14 +16,14 @@ return {
         function()
           require("harpoon.mark").add_file()
         end,
-        desc = "Add file",
+        desc = "add file",
       },
       {
         prefix .. "e",
         function()
           require("harpoon.ui").toggle_quick_menu()
         end,
-        desc = "Toggle quick menu",
+        desc = "toggle quick menu",
       },
       {
         "<C-x>",
@@ -35,21 +35,21 @@ return {
             end
           end)
         end,
-        desc = "Goto index of mark",
+        desc = "goto index of mark",
       },
       {
         "<C-p>",
         function()
           require("harpoon.ui").nav_prev()
         end,
-        desc = "Goto previous mark",
+        desc = "goto previous mark",
       },
       {
         "<C-n>",
         function()
           require("harpoon.ui").nav_next()
         end,
-        desc = "Goto next mark",
+        desc = "goto next mark",
       },
       {
         prefix .. "t",
@@ -61,7 +61,7 @@ return {
             end
           end)
         end,
-        desc = "Go to " .. term_string .. " window",
+        desc = "go to " .. term_string .. " window",
       },
     },
   },

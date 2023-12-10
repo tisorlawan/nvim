@@ -125,7 +125,7 @@ return {
           })
         end,
         mode = { "n", "x" },
-        desc = "Format & Save",
+        desc = "format & save",
       },
     },
     config = function()
@@ -140,17 +140,17 @@ return {
           print("enabled auto format")
         end
       end, {
-        desc = "Disable autoformat-on-save",
+        desc = "disable autoformat-on-save",
         bang = true,
       })
 
-      vim.keymap.set("n", "<leader>uf", "<cmd>ToggleAutoFormat<cr>", { desc = "Toggle Autoformat" })
+      vim.keymap.set("n", "<leader>uf", "<cmd>ToggleAutoFormat<cr>", { desc = "toggle autoformat" })
     end,
   },
   {
     "williamboman/mason.nvim",
     keys = {
-      { "<leader>pm", vim.cmd.Mason, desc = " Mason Home" },
+      { "<leader>pm", vim.cmd.Mason, desc = " mason home" },
     },
     opts = {
       ui = {
@@ -173,7 +173,7 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     event = "VeryLazy",
     keys = {
-      { "<leader>pM", vim.cmd.MasonToolsUpdate, desc = " Mason Update" },
+      { "<leader>pM", vim.cmd.MasonToolsUpdate, desc = " mason update" },
     },
     dependencies = "williamboman/mason.nvim",
     config = function()

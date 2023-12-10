@@ -5,7 +5,7 @@ return {
     config = function()
       vim.keymap.set("n", "<leader>c", function()
         require("bufdelete").bufdelete(0, true)
-      end, { desc = "Close buffer" })
+      end, { desc = "close buffer" })
     end,
   },
   {
@@ -29,7 +29,7 @@ return {
   { "wintermute-cell/gitignore.nvim", cmd = "Gitignore" },
   {
     "lambdalisue/suda.vim",
-    keys = { { "<leader>W", ":SudaWrite<CR>", desc = "Suda Write" } },
+    keys = { { "<leader>W", ":SudaWrite<CR>", desc = "suda write" } },
     cmd = {
       "SudaRead",
       "SudaWrite",
