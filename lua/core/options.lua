@@ -34,3 +34,11 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.undodir = vim.fn.expand("$HOME/.undodir")
 vim.opt.undofile = true
+
+vim.opt.mouse = "a"
+
+-- Wildignore for better experience
+vim.opt.wildignorecase = true
+vim.opt.wildignore:append("**/node_modules/*")
+vim.opt.wildignore:append("**/.git/*")
+vim.opt.wildignore:append("**/build/*")
