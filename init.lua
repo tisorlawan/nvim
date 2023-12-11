@@ -41,3 +41,4 @@ require("lazy").setup({
 
 require("core.mappings")
 require("core.autocmds")
+require("core.filetypes")
