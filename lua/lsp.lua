@@ -152,7 +152,14 @@ return {
           map("gy", vim.lsp.buf.type_definition, "Goto Type Definition")
           map("<leader>rn", vim.lsp.buf.rename, "Rename")
           map("gr", vim.lsp.buf.references, "Goto References")
-          vnmap("<leader>la", vim.lsp.buf.code_action, "Code action")
+
+          local ok_fzf, _ = pcall(require, "fzf-lua")
+          if ok_fzf then
+            vnmap("<leader>la", "<cmd>lua require('fzf-lua').lsp_code_actions()<cr>", "Code action (FZF Lua)")
+            vnmap("<leader>lA", vim.lsp.buf.code_action, "Code action")
+          else
+            vnmap("<leader>la", vim.lsp.buf.code_action, "Code action")
+          end
         end,
       })
     end,
