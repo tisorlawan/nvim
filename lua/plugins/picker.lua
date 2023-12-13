@@ -22,6 +22,13 @@ return {
       desc = "grep visual",
     },
     { "<leader>fs", "<cmd>lua require('fzf-lua').git_status()<CR>", silent = true, desc = "git status" },
+    { "<leader>ld", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", silent = true, desc = "doc lsp symbols" },
+    {
+      "<leader>lw",
+      "<cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>",
+      silent = true,
+      desc = "worksppace lsp symbols",
+    },
   },
   config = function()
     -- fix: small delay on closing the window

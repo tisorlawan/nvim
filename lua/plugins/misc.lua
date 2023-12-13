@@ -1,4 +1,6 @@
 return {
+  -- restore cursor position
+  { "farmergreg/vim-lastplace" },
   { "romainl/vim-cool" },
   {
     "famiu/bufdelete.nvim",
