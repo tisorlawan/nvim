@@ -130,6 +130,10 @@ return {
     },
     config = function()
       require("conform").setup(formatterConfig)
+      -- add sort capabilities
+      require("conform").formatters.ruff_fix = {
+        prepend_args = { "--select", "I" },
+      }
 
       vim.api.nvim_create_user_command("ToggleAutoFormat", function()
         ---@diagnostic disable-next-line: inject-field

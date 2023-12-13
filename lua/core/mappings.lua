@@ -37,6 +37,8 @@ vim.keymap.set("n", "<leader>lc", ":ConformInfo<cr>", { desc = "conform info", s
 
 vim.keymap.set("n", "<leader>ud", utils.toggle_diagnostics, { desc = "toggle diagnostics" })
 
+vim.keymap.set("n", "gp", "`[v`]", { desc = "reselect pasted text" })
+
 vim.cmd([[
   xnoremap <expr> p 'pgv"'.v:register.'y`>'
   xnoremap <expr> P 'Pgv"'.v:register.'y`>'
