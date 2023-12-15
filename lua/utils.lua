@@ -47,4 +47,13 @@ M.toggle_diagnostics = function()
   end
 end
 
+M.get_linters = function()
+  local linters = require("lint").get_running()
+  if #linters == 0 then
+    print("-- No linters --")
+  else
+    print("Linters: " .. table.concat(linters, ", "))
+  end
+end
+
 return M

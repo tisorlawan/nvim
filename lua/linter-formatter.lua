@@ -71,7 +71,11 @@ local function lintTriggers()
     require("lint").try_lint()
   end
 
-  vim.api.nvim_create_autocmd({ "BufReadPost", "InsertLeave", "TextChanged", "FocusGained" }, {
+  -- vim.api.nvim_create_autocmd({ "BufReadPost", "InsertLeave", "TextChanged", "FocusGained" }, {
+  --   callback = doLint,
+  -- })
+
+  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     callback = doLint,
   })
 

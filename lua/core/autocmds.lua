@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd("FileType", {
   desc = "2 spaces",
-  pattern = "lua",
+  pattern = "lua,typescriptreact,typescript,javascript",
   group = vim.api.nvim_create_augroup("two_spaces", { clear = true }),
   callback = function()
     vim.opt.expandtab = true

@@ -31,8 +31,10 @@ vim.keymap.set("n", "cq", utils.close_diagnostics, { desc = "close diagnostics",
 vim.keymap.set("n", "cu", utils.jumps_to_qf, { desc = "jumps to qf", silent = true })
 
 vim.keymap.set("n", "<leader>ll", ":Lazy<cr>", { desc = "lazy", silent = true })
+vim.keymap.set("n", "<leader>lt", utils.get_linters, { desc = "lint progress", silent = true })
 vim.keymap.set("n", "<leader>lp", ":Lazy profile<cr>", { desc = "lazy profile", silent = true })
 vim.keymap.set("n", "<leader>li", ":LspInfo<cr>", { desc = "lspinfo", silent = true })
+vim.keymap.set("n", "<leader>lm", ":Mason<cr>", { desc = "Mason", silent = true })
 vim.keymap.set("n", "<leader>lc", ":ConformInfo<cr>", { desc = "conform info", silent = true })
 
 vim.keymap.set("n", "<leader>ud", utils.toggle_diagnostics, { desc = "toggle diagnostics" })
