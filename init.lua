@@ -35,6 +35,7 @@ require("lazy").setup({
   require("plugins.harpoon"),
   require("plugins.surround"),
   require("plugins.outline"),
+  require("plugins.fold"),
 
   require("lsp"),
   require("linter-formatter"),

@@ -7,7 +7,10 @@ return {
     { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "leap backward till" },
     { "gs", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "leap from window" },
   },
-  opts = {},
+  opts = {
+    safe_labels = "wertyuiodfghjklcvbn",
+    labels = "sfnjklhodweimbuyvrgtqpcxz/SFNJKLHODWEIMBUYVRGTAQPCXZ",
+  },
   init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
     vim.api.nvim_create_autocmd("User", {
       callback = function()

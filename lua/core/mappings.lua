@@ -41,6 +41,21 @@ vim.keymap.set("n", "<leader>ud", utils.toggle_diagnostics, { desc = "toggle dia
 
 vim.keymap.set("n", "gp", "`[v`]", { desc = "reselect pasted text" })
 
+local ufo_ok, ufo = pcall(require, "ufo")
+if ufo_ok then
+  local map_ufo = function(key, fn, desc)
+    vim.keymap.set("n", key, function()
+      fn()
+    end, { desc = desc })
+  end
+
+  map_ufo("zR", ufo.openAllFolds, "open all folds")
+  map_ufo("zM", ufo.closeAllFolds, "close all folds")
+  map_ufo("zr", ufo.openFoldsExceptKinds, "fold less")
+  map_ufo("zm", ufo.closeFoldsWith, "fold more")
+  map_ufo("zp", ufo.peekFoldedLinesUnderCursor, "peek fold")
+end
+
 vim.cmd([[
   xnoremap <expr> p 'pgv"'.v:register.'y`>'
   xnoremap <expr> P 'Pgv"'.v:register.'y`>'
