@@ -2,7 +2,7 @@ return {
   "kevinhwang91/nvim-ufo",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = { "kevinhwang91/promise-async" },
-  -- enabled = false,
+  enabled = false,
   opts = {
     preview = {
       mappings = {
