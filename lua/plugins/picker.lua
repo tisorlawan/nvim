@@ -4,6 +4,7 @@ return {
   -- dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
     { "<leader>ff", "<cmd>lua require('fzf-lua').files()<cr>", silent = true, desc = "files" },
+    { "<leader>fc", ":FzfLua files cwd=~/", desc = "files cwd" },
     { "<leader>fh", "<cmd>lua require('fzf-lua').help_tags()<cr>", silent = true, desc = "help" },
     { "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<cr>", silent = true, desc = "bbuffers" },
     { "<leader>fn", "<cmd>lua require('fzf-lua').builtin()<cr>", silent = true, desc = "builtin" },

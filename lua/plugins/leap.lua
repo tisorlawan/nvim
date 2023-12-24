@@ -8,7 +8,7 @@ return {
     { "gs", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "leap from window" },
   },
   opts = {
-    safe_labels = "wertyuiodfghjklcvbn",
+    safe_labels = "rtyuiodfghjklcvbn",
     labels = "sfnjklhodweimbuyvrgtqpcxz/SFNJKLHODWEIMBUYVRGTAQPCXZ",
   },
   init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
