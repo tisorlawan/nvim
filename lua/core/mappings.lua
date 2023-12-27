@@ -15,6 +15,8 @@ vim.keymap.set("n", "`", "'")
 
 vim.keymap.set("i", "<c-l>", "<right>")
 vim.keymap.set("i", "<c-h>", "<left>")
+vim.keymap.set("i", "<c-j>", "<down>")
+vim.keymap.set("i", "<c-k>", "<up>")
 vim.keymap.set("i", "<c-s>", "<esc>:w<cr>")
 vim.keymap.set("i", "<m-h>", "<esc>I")
 vim.keymap.set("i", "<m-l>", "<end>")
