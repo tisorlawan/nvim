@@ -8,7 +8,7 @@ end
 return {
   {
     "rebelot/kanagawa.nvim",
-    priority = 10,
+    priority = 0,
     config = function()
       local fn = function()
         require("kanagawa").setup({
@@ -40,7 +40,7 @@ return {
   },
   {
     "ramojus/mellifluous.nvim",
-    priority = 0,
+    priority = 10,
     config = function()
       local fn = function()
         require("mellifluous").setup({
