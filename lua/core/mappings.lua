@@ -21,8 +21,8 @@ vim.keymap.set("i", "<c-s>", "<esc>:w<cr>")
 vim.keymap.set("i", "<m-h>", "<esc>I")
 vim.keymap.set("i", "<m-l>", "<end>")
 
-vim.keymap.set({ "n", "v" }, "c", '"_c')
-vim.keymap.set({ "n", "v" }, "C", '"_C')
+-- vim.keymap.set({ "n", "v" }, "c", '"_c')
+-- vim.keymap.set({ "n", "v" }, "C", '"_C')
 
 vim.keymap.set("v", "x", '"_dP')
 
