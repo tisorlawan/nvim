@@ -24,7 +24,7 @@ vim.opt.virtualedit = "block"
 
 vim.opt.inccommand = "split"
 
-vim.opt.ignorecase = true
+vim.opt.ignorecase = false
 
 vim.opt.termguicolors = true
 

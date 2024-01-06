@@ -4,7 +4,6 @@ local icon = vim.g.icons_enabled and "󰑤 " or ""
 maps.n[prefix] = { desc = icon .. "Surround" }
 
 return {
-  { "machakann/vim-sandwich", enabled = false },
   {
     "echasnovski/mini.surround",
     keys = function(plugin, keys)

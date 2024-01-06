@@ -3,6 +3,7 @@ vim.g.linters = {
   css = { "stylelint" },
   sh = { "zsh", "shellcheck" },
   markdown = { "markdownlint" },
+  dockerfile = { "hadolint" },
 }
 
 vim.g.formatters = {
@@ -39,7 +40,7 @@ vim.g.lspToMasonMap = {
   pyright = "pyright", -- python
   ruff_lsp = "ruff-lsp", -- python linter
   taplo = "taplo", -- toml
-  yamlls = "yaml-language-server",
+  -- yamlls = "yaml-language-server",
   gopls = "gopls",
 }
 

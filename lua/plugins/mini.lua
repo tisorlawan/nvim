@@ -11,5 +11,13 @@ return {
       },
       symbol = "│",
     })
+    require("mini.trailspace").setup()
+    require("mini.hues").setup({ background = "#262630", foreground = "#d0d0d0", saturation = "medium" })
+    require("mini.move").setup()
+    require("mini.jump").setup()
+    require("mini.bufremove").setup()
+
+    vim.keymap.set("n", "<leader>d", MiniBufremove.delete, { desc = "delete buffer" })
+    vim.keymap.set("n", "<leader>c", MiniBufremove.wipeout, { desc = "wipeout buffer" })
   end,
 }

@@ -15,7 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  require("plugins.colorscheme"),
+  -- require("plugins.colorscheme"),
   require("plugins.treesitter"),
   require("plugins.status"),
   require("plugins.mini"),
@@ -37,6 +37,7 @@ require("lazy").setup({
   require("plugins.rust"),
   require("plugins.go"),
   require("plugins.typescript"),
+  require("plugins.markdown"),
 
   require("lsp"),
   require("linter-formatter"),

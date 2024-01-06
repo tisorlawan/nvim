@@ -3,14 +3,6 @@ return {
   { "farmergreg/vim-lastplace" },
   { "romainl/vim-cool" },
   {
-    "famiu/bufdelete.nvim",
-    config = function()
-      vim.keymap.set("n", "<leader>c", function()
-        require("bufdelete").bufdelete(0, true)
-      end, { desc = "close buffer" })
-    end,
-  },
-  {
     "Aasim-A/scrollEOF.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
