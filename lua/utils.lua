@@ -1,6 +1,6 @@
 local M = {}
 
-M.close_diagnostics = function()
+function M.close_diagnostics()
   local windows = vim.api.nvim_list_wins()
   for _, win in ipairs(windows) do
     vim.api.nvim_win_call(win, function()
@@ -20,7 +20,7 @@ M.close_diagnostics = function()
   vim.cmd("cclose")
 end
 
-M.jumps_to_qf = function()
+function M.jumps_to_qf()
   local jumplist, _ = unpack(vim.fn.getjumplist())
   local qf_list = {}
   for _, v in pairs(jumplist) do
@@ -37,7 +37,7 @@ M.jumps_to_qf = function()
   vim.cmd("copen")
 end
 
-M.toggle_diagnostics = function()
+function M.toggle_diagnostics()
   if vim.diagnostic.is_disabled() then
     vim.diagnostic.enable()
     print("enabled diagnostic")
@@ -47,7 +47,7 @@ M.toggle_diagnostics = function()
   end
 end
 
-M.get_linters = function()
+function M.get_linters()
   local linters = require("lint").get_running()
   if #linters == 0 then
     print("-- No linters --")
@@ -56,7 +56,7 @@ M.get_linters = function()
   end
 end
 
-M.os_exec = function(cmd, raw)
+function M.os_exec(cmd, raw)
   local handle = assert(io.popen(cmd, "r"))
   local output = assert(handle:read("*a"))
 
@@ -71,11 +71,11 @@ M.os_exec = function(cmd, raw)
   return output
 end
 
-M.trim = function(s)
+function M.trim(s)
   return s:gsub("^%s*(.-)%s*$", "%1")
 end
 
-M.file_exists = function(filepath)
+function M.file_exists(filepath)
   local file = io.open(filepath, "r")
   if file then
     file:close()
@@ -84,7 +84,7 @@ M.file_exists = function(filepath)
   return false
 end
 
-M.contains = function(sequence, element)
+function M.contains(sequence, element)
   for _, value in ipairs(sequence) do
     if value == element then
       return true
@@ -93,7 +93,7 @@ M.contains = function(sequence, element)
   return false
 end
 
-M.buf_set_keymap_add_colon = function()
+function M.buf_set_keymap_add_colon()
   local bufnr = vim.api.nvim_get_current_buf()
   vim.keymap.set("i", "<C-d>", "<End>;", { noremap = true, silent = true, buffer = bufnr })
 end
