@@ -4,5 +4,6 @@ vim.filetype.add({
   },
   filename = {
     [".env"] = "bash",
+    [".env.template"] = "bash",
   },
 })

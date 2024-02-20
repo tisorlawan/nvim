@@ -36,6 +36,7 @@ local plugins = {
   require("plugins.nvim-lint"),
   require("plugins.mason-tool-installer"),
   require("plugins.multicursor"),
+  require("plugins.langs.just"),
 }
 
 local ft_plugins = {
