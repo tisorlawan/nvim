@@ -43,6 +43,7 @@ local ft_plugins = {
   rust = require("plugins.langs.rust"),
   go = require("plugins.langs.go"),
   python = require("plugins.langs.python"),
+  markdown = require("plugins.langs.markdown"),
   norg = require("plugins.langs.neorg"),
 }
 
