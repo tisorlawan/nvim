@@ -6,6 +6,10 @@ return {
     require("conform").setup({
       formatters_by_ft = m.formatters_by_ft,
       format_on_save = function(bufnr)
+        if string.find(vim.fn.expand("%"), "poetry.lock") then
+          return
+        end
+
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
           return
         end

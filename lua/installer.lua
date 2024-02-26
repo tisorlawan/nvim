@@ -29,6 +29,11 @@ local config = {
     formatters = { "gofumpt", "goimports", "golines" },
     servers = { "gopls" },
   },
+  html = {
+    servers = { "html" },
+    formatters = { "prettierd" },
+    linters = { "htmlhint" },
+  },
   javascript = {
     formatters = { "biome" },
   },

@@ -5,5 +5,6 @@ vim.filetype.add({
   filename = {
     [".env"] = "bash",
     [".env.template"] = "bash",
+    ["poetry.lock"] = "toml",
   },
 })

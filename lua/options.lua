@@ -10,6 +10,8 @@ vim.opt.cursorline = true
 
 vim.opt.wrap = false
 
+vim.opt.cmdheight = 1
+
 vim.opt.expandtab = true
 vim.opt.tabstop = 4 -- interpret a tab as 4 spaces
 vim.opt.shiftwidth = 4 -- indent and dedent with 4 spaces

@@ -35,6 +35,7 @@ local plugins = {
   require("plugins.conform"),
   require("plugins.nvim-lint"),
   require("plugins.mason-tool-installer"),
+  require("plugins.autotag"),
   require("plugins.multicursor"),
   require("plugins.langs.just"),
 }

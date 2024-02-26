@@ -31,4 +31,18 @@ return {
   { "folke/todo-comments.nvim", opts = {}, event = { "BufReadPre", "BufNewFile" } },
   { "kevinhwang91/nvim-bqf", ft = "qf", opts = {} },
   { "nmac427/guess-indent.nvim", opts = {}, event = { "BufReadPre" } },
+  {
+    "johnfrankmorgan/whitespace.nvim",
+    config = function()
+      require("whitespace-nvim").setup({
+        -- highlight = "NvimInternalError",
+        highlight = "DiffDelete",
+        ignored_filetypes = { "TelescopePrompt", "Trouble", "help" },
+        ignore_terminal = true,
+        return_cursor = true,
+      })
+
+      vim.keymap.set("n", "<Leader>t", require("whitespace-nvim").trim, { desc = "Trim Whitespace" })
+    end,
+  },
 }
