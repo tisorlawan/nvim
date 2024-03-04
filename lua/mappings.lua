@@ -5,8 +5,11 @@ map("n", "<Leader><Tab>", "<C-^>", { desc = "alternative buffer" })
 map("n", "<C-s>", ":w<cr>", { silent = true })
 map("n", "<Leader>w", ":w<cr>", { silent = true })
 
-map("n", "<M-n>", ":bnext<cr>", { silent = true })
-map("n", "<M-p>", ":bprev<cr>", { silent = true })
+-- map("n", "<M-n>", ":bnext<cr>", { silent = true })
+-- map("n", "<M-p>", ":bprev<cr>", { silent = true })
+
+map("n", "<M-n>", "<Plug>(buf-surf-forward)", { silent = true })
+map("n", "<M-p>", "<Plug>(buf-surf-back)", { silent = true })
 
 map("n", "H", "^")
 map("n", "L", "$")
@@ -32,6 +35,18 @@ map("n", "<Leader>li", ":LspInfo<cr>", { desc = "lspinfo", silent = true })
 map("n", "<Leader>lm", ":Mason<cr>", { desc = "Mason", silent = true })
 map("n", "<Leader>lc", ":ConformInfo<cr>", { desc = "conform info", silent = true })
 map("n", "<Leader>ud", utils.toggle_diagnostics, { desc = "toggle diagnostics" })
+
+vim.cmd([[
+  map *  <Plug>(asterisk-z*)
+  map #  <Plug>(asterisk-z#)
+  map g* <Plug>(asterisk-gz*)
+  map g# <Plug>(asterisk-gz#)
+  map z*  <Plug>(asterisk-z*)
+  map gz* <Plug>(asterisk-gz*)
+  map z#  <Plug>(asterisk-z#)
+  map gz# <Plug>(asterisk-gz#)
+  let g:asterisk#keeppos = 1
+]])
 
 map("i", "<C-l>", "<Right>")
 map("i", "<C-h>", "<Left>")

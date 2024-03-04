@@ -1,6 +1,8 @@
 return {
   { "farmergreg/vim-lastplace" }, -- restore cursor position
   { "romainl/vim-cool" },
+  { "ton/vim-bufsurf" },
+  { "haya14busa/vim-asterisk" },
   {
     "Aasim-A/scrollEOF.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -37,7 +39,7 @@ return {
       require("whitespace-nvim").setup({
         -- highlight = "NvimInternalError",
         highlight = "DiffDelete",
-        ignored_filetypes = { "TelescopePrompt", "Trouble", "help" },
+        ignored_filetypes = { "TelescopePrompt", "Trouble", "help", "lazy", "mason" },
         ignore_terminal = true,
         return_cursor = true,
       })

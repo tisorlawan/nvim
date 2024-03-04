@@ -272,4 +272,23 @@ return {
     opts = {},
     ft = { "rust", "python", "lua", "go" },
   },
+  {
+    "dgagn/diagflow.nvim",
+    event = "LspAttach",
+    enabled = false,
+    opts = {
+      scope = "line", -- line|cursor
+      toggle_event = { "InsertEnter" },
+      text_align = "right", -- left|right
+      border_chars = {
+        top_left = "┌",
+        top_right = "┐",
+        bottom_left = "└",
+        bottom_right = "┘",
+        horizontal = "─",
+        vertical = "│",
+      },
+      show_borders = true,
+    },
+  },
 }

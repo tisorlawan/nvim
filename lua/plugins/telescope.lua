@@ -55,7 +55,8 @@ return {
       }):sync()
     end
 
-    require("telescope").setup({
+    local telescope = require("telescope")
+    telescope.setup({
       defaults = {
         mappings = {
           i = {
@@ -67,8 +68,8 @@ return {
       pickers = {},
       extensions = {},
     })
-    require("telescope").load_extension("fzf")
-    require("telescope").load_extension("aerial")
+    telescope.load_extension("fzf")
+    telescope.load_extension("aerial")
 
     local b = require("telescope.builtin")
 

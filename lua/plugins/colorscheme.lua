@@ -23,7 +23,7 @@ return {
           dimInactive = false,
           terminalColors = true,
         })
-        vim.cmd.colorscheme("kanagawa-dragon")
+        vim.cmd.colorscheme("kanagawa-wave")
       end
 
       fn()
@@ -46,7 +46,7 @@ return {
             lsp = { underline = true },
           },
         })
-        vim.cmd.colorscheme("no-clown-fiesta")
+        -- vim.cmd.colorscheme("no-clown-fiesta")
       end
 
       fn()
