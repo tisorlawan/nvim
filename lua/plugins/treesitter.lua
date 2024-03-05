@@ -2,6 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "yioneko/nvim-yati",
   },
   config = function()
     ---@diagnostic disable-next-line: missing-fields
@@ -10,6 +11,14 @@ return {
       auto_install = true,
       highlight = {
         enable = true,
+      },
+      yati = {
+        enable = true,
+        default_lazy = true,
+        default_fallback = "auto",
+      },
+      indent = {
+        enable = false,
       },
       incremental_selection = {
         enable = true,
