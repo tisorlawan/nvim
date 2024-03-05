@@ -184,10 +184,11 @@ return {
           end, { "i", "s" }),
         },
         sources = cmp.config.sources({
+          { name = "path", priority = 1200 },
+          { name = "codeium", priority = 1100 },
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
           { name = "buffer", priority = 500 },
-          { name = "path", priority = 250 },
         }),
         ---@diagnostic disable-next-line: missing-fields
         formatting = {
@@ -196,6 +197,7 @@ return {
               mode = "symbol",
               maxwidth = 50,
               ellipsis_char = "...",
+              symbol_map = { Codeium = "" },
 
               -- The function below will be called before any actual modifications from lspkind
               -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))

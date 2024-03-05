@@ -38,6 +38,7 @@ local plugins = {
   require("plugins.autotag"),
   require("plugins.multicursor"),
   require("plugins.langs.just"),
+  require("plugins.codium"),
 }
 
 local ft_plugins = {
