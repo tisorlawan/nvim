@@ -1,6 +1,7 @@
 vim.filetype.add({
   extension = {
     ["env"] = "bash",
+    ["templ"] = "templ",
   },
   filename = {
     [".env"] = "bash",

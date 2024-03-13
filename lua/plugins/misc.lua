@@ -39,7 +39,7 @@ return {
       require("whitespace-nvim").setup({
         -- highlight = "NvimInternalError",
         highlight = "DiffDelete",
-        ignored_filetypes = { "TelescopePrompt", "Trouble", "help", "lazy", "mason" },
+        ignored_filetypes = { "TelescopePrompt", "Trouble", "help", "lazy", "mason", "lspinfo" },
         ignore_terminal = true,
         return_cursor = true,
       })

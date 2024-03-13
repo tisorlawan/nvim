@@ -18,7 +18,7 @@ vim.g.lspConfig = {
   },
 }
 
-local servers_config_skip = { "rust_analyzer" }
+local servers_config_skip = { "rust_analyzer", "tsserver" }
 -- local servers_config_skip = {}
 
 local servers_install_skip = { "clangd", "rust_analyzer" }

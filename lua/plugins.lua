@@ -46,6 +46,7 @@ local ft_plugins = {
   go = require("plugins.langs.go"),
   python = require("plugins.langs.python"),
   markdown = require("plugins.langs.markdown"),
+  typescript = require("plugins.langs.typescript"),
   norg = require("plugins.langs.neorg"),
 }
 

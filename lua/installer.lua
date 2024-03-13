@@ -20,6 +20,7 @@ local config = {
     servers = { "clangd" },
   },
   css = {
+    servers = { "tailwindcss" },
     linters = { "stylelint" },
   },
   dockerfile = {
@@ -60,8 +61,20 @@ local config = {
     servers = { "bashls" },
     formatters = { "shfmt" },
   },
+  templ = {
+    formatters = { "templ" },
+    servers = { "templ" },
+  },
   toml = {
     formatters = { "taplo" },
+  },
+  typescript = {
+    formatters = { "prettierd" },
+    servers = { "tsserver", "eslint" },
+  },
+  typescriptreact = {
+    formatters = { "prettierd" },
+    servers = { "tsserver", "eslint" },
   },
 }
 
