@@ -28,6 +28,7 @@ local plugins = {
   require("plugins.aerial"),
   require("plugins.surround"),
   require("plugins.undotree"),
+  require("plugins.comment"),
   require("plugins.git"),
   require("plugins.misc"),
   require("plugins.lsp"),

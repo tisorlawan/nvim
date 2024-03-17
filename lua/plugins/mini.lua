@@ -17,7 +17,6 @@ return {
     ---@diagnostic disable-next-line: assign-type-mismatch
     version = false,
     config = function()
-      require("mini.comment").setup()
       -- require("mini.hues").setup({ background = "#262630", foreground = "#d0d0d0", saturation = "medium" })
       -- require("mini.move").setup()
       -- require("mini.jump").setup()
